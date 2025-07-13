@@ -75,9 +75,9 @@ do
     #Pick a profile
     rand=$[ $RANDOM % 15 ]
 
-    #If the profile is greater than 8, use WMA. Else, use MP3
+    #If the profile is greater than 9, use WMA. Else, use MP3
     ext=mp3
-    if [ "$rand" -gt "8" ]; then
+    if [ "$rand" -gt "9" ]; then
         ext=wma
     fi
 
