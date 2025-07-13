@@ -10,13 +10,13 @@ CD collection into a hodgepodge pirated mess. Uses FFmpeg
 to compress your files based on randomly chosen profiles.
 Uses 64kbps-128kbps MP3 and 64kbps-128kbps WMA.
 
-This script needs FFmpeg, basic GNU tools, and a bash shell
-to work. If needed, install ffmpeg using your distro's 
-package manager.
+  This script needs FFmpeg, basic GNU tools, and a bash 
+shell to work. If needed, install ffmpeg using your 
+distro's package manager.
 
-To use, download LimeSqueezer.sh, place it in a folder with
-the music you intend to convert, mark the script as executable 
-by running "chmod +x LimeSqueezer.sh", and execute using
-"./LimeSqueezer.sh".
+  To use, download LimeSqueezer.sh, place it in a folder 
+with the music you intend to convert, mark the script as
+executable by running "chmod +x LimeSqueezer.sh", and 
+execute using "./LimeSqueezer.sh".
 
 queer-coded in 2025 by msx.gay - http://msx.gay
