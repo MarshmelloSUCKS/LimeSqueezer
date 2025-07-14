@@ -36,7 +36,6 @@ echo " - - - - - - - - - - - - - - - - - - - - - - - - - - "
 
 #Print help if asked for
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-
     echo " "
     echo "Possible flags:"
     echo "  -mp3: Encode only MP3s, for players that don't support WMA"
