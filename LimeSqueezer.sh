@@ -19,9 +19,28 @@
 #   To use, download LimeSqueezer.sh, place it in a folder
 # with the music you intend to convert, mark the script as
 # executable by running "chmod +x LimeSqueezer.sh", and
-# execute using "./LimeSqueezer.sh".
+# execute using "./LimeSqueezer.sh". If you only want MP3s,
+# execute using "./LimeSqueezer.sh -mp3".
 #
 # queer-coded in 2025 by msx.gay - http://msx.gay
+
+#Print help if asked for
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    echo " - - - - - - - - - - - - - - - - - - - - - - - - - - "
+    echo " __    _           _____                             "
+    echo "|  |  |_|_____ ___|   __|___ _ _ ___ ___ ___ ___ ___ "
+    echo "|  |__| |     | -_|__   | . | | | -_| -_|- _| -_|  _|"
+    echo "|_____|_|_|_|_|___|_____|_  |___|___|___|___|___|_|  "
+    echo "                          |_|                        "
+    echo "                                   by msx.gay        "
+    echo " - - - - - - - - - - - - - - - - - - - - - - - - - - "
+    echo " "
+    echo "Possible flags:"
+    echo "  -mp3: Encode only MP3s, for players that don't support WMA"
+    echo "  -h, --help: Print this help screen"
+    exit 0
+fi
+
 
 #Print some kick-ass ASCII art
 echo " - - - - - - - - - - - - - - - - - - - - - - - - - - "
@@ -50,35 +69,40 @@ sleep 0.5
 mkdir Compressed
 
 #Encoding profiles for ffmpeg to use
+#MP3 Profiles
 arr[0]="-ab 64k -ar 32000 -cutoff 14000 -compression_level 9"
-arr[1]="-ab 64k -ar 32000 -cutoff 16000 -compression_level 9"
-arr[2]="-ab 80k -ar 44100 -cutoff 15000 -compression_level 9"
-arr[3]="-ab 80k -ar 44100 -cutoff 17000 -compression_level 9"
+arr[1]="-ab 80k -ar 44100 -cutoff 15000 -compression_level 9"
+arr[2]="-ab 80k -ar 44100 -cutoff 17000 -compression_level 9"
+arr[3]="-ab 96k -ar 44100 -cutoff 16000 -compression_level 9"
 arr[4]="-ab 96k -ar 44100 -cutoff 18000 -compression_level 9"
-arr[5]="-ab 96k -ar 44100 -cutoff 20000 -compression_level 9"
-arr[6]="-ab 112k -ar 44100 -cutoff 18000 -compression_level 9"
-arr[7]="-ab 112k -ar 44100 -cutoff 20000 -compression_level 9"
-arr[8]="-ab 128k -ar 44100 -cutoff 20000 -compression_level 9"
-arr[9]="-ab 128k -ar 48000 -cutoff 20000 -compression_level 9"
-arr[10]="-ab 64k -ar 32000"
+arr[5]="-ab 112k -ar 44100 -cutoff 17000 -compression_level 9"
+arr[6]="-ab 112k -ar 44100 -cutoff 19000 -compression_level 9"
+arr[7]="-ab 112k -ar 48000 -cutoff 20000 -compression_level 9"
+arr[8]="-ab 128k -ar 44100 -cutoff 18000 -compression_level 9"
+arr[9]="-ab 128k -ar 44100 -cutoff 20000 -compression_level 9"
+arr[10]="-ab 128k -ar 48000 -cutoff 20000 -compression_level 9"
+#WMA Profiles
 arr[11]="-ab 80k -ar 44100"
-arr[12]="-ab 80k -ar 48000"
-arr[13]="-ab 96k -ar 44100"
-arr[14]="-ab 96k -ar 48000"
-arr[15]="-ab 112k -ar 44100"
-arr[16]="-ab 112k -ar 48000"
-arr[17]="-ab 128k -ar 44100"
-arr[18]="-ab 128k -ar 48000"
+arr[12]="-ab 96k -ar 44100"
+arr[13]="-ab 96k -ar 48000"
+arr[14]="-ab 112k -ar 44100"
+arr[15]="-ab 112k -ar 48000"
+arr[16]="-ab 128k -ar 44100"
+arr[17]="-ab 128k -ar 48000"
 
 #The Cane's Sauce
 for i in *.$in
 do
     #Pick a profile
-    rand=$[ $RANDOM % 15 ]
+    if [ "$1" == "-mp3" ]; then
+        rand=$[ $RANDOM % 10 ]
+    else
+        rand=$[ $RANDOM % 17 ]
+    fi
 
     #If the profile is greater than 9, use WMA. Else, use MP3
     ext=mp3
-    if [ "$rand" -gt "9" ]; then
+    if [ "$rand" -gt "10" ]; then
         ext=wma
     fi
 
