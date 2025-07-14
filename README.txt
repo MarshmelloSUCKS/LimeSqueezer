@@ -19,4 +19,8 @@ with the music you intend to convert, mark the script as
 executable by running "chmod +x LimeSqueezer.sh", and 
 execute using "./LimeSqueezer.sh".
 
+Possible flags:
+  -mp3: Encode only MP3s, for players that don't support WMA
+  -h, --help: Print a help screen
+
 queer-coded in 2025 by msx.gay - http://msx.gay
