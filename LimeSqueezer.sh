@@ -24,24 +24,6 @@
 #
 # queer-coded in 2025 by msx.gay - http://msx.gay
 
-#Print help if asked for
-if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-    echo " - - - - - - - - - - - - - - - - - - - - - - - - - - "
-    echo " __    _           _____                             "
-    echo "|  |  |_|_____ ___|   __|___ _ _ ___ ___ ___ ___ ___ "
-    echo "|  |__| |     | -_|__   | . | | | -_| -_|- _| -_|  _|"
-    echo "|_____|_|_|_|_|___|_____|_  |___|___|___|___|___|_|  "
-    echo "                          |_|                        "
-    echo "                                   by msx.gay        "
-    echo " - - - - - - - - - - - - - - - - - - - - - - - - - - "
-    echo " "
-    echo "Possible flags:"
-    echo "  -mp3: Encode only MP3s, for players that don't support WMA"
-    echo "  -h, --help: Print this help screen"
-    exit 0
-fi
-
-
 #Print some kick-ass ASCII art
 echo " - - - - - - - - - - - - - - - - - - - - - - - - - - "
 echo " __    _           _____                             "
@@ -51,6 +33,16 @@ echo "|_____|_|_|_|_|___|_____|_  |___|___|___|___|___|_|  "
 echo "                          |_|                        "
 echo "                                   by msx.gay        "
 echo " - - - - - - - - - - - - - - - - - - - - - - - - - - "
+
+#Print help if asked for
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+
+    echo " "
+    echo "Possible flags:"
+    echo "  -mp3: Encode only MP3s, for players that don't support WMA"
+    echo "  -h, --help: Print this help screen"
+    exit 0
+fi
 
 #Start by asking the extension of the input files
 read -p "Extension of the input files: ." in
