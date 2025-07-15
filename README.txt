@@ -8,7 +8,7 @@
    LimeSqueezer - a script to turn your perfect lossless
 CD collection into a hodgepodge pirated mess. Uses FFmpeg
 to compress your files based on randomly chosen profiles.
-Uses 64kbps-128kbps MP3 and 64kbps-128kbps WMA.
+Uses 64kbps-128kbps MP3 and 80kbps-128kbps WMA.
 
   This script needs FFmpeg, basic GNU tools, and a bash 
 shell to work. If needed, install ffmpeg using your 
